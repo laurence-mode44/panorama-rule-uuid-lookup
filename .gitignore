@@ -1,0 +1,28 @@
+
+---
+
+## 🧰 **2️⃣ .gitignore**
+
+**File name:** `.gitignore`
+
+```gitignore
+# Python cache and temporary files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+
+# Local environment / credentials
+.env
+*.key
+*.crt
+*.pem
+
+# Local data exports and logs
+rule_uuid_lookup.csv
+*.log
+*.tmp
+
+# macOS system files
+.DS_Store
