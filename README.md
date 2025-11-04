@@ -1,43 +1,41 @@
 # Mode44 Panorama Rule UUID Lookup
 
-**Version:** v1.1  
 **Author:** Laurence Curling — Mode44 Ltd  
 **License:** MIT  
-**Status:** Public, read-only, educational + operational use
+**Status:** Public / Read-only / Production-ready  
 
 ---
 
 ## 🧠 Overview
 
-The **Mode44 Panorama Rule UUID Lookup** is a secure, read-only Python utility for
-extracting rule UUIDs from a **Palo Alto Networks Panorama** configuration.  
-It searches every **device group** and **shared pre/post rulebase** for any rule
-names listed in a local text file, then outputs a formatted table and CSV report.
+The **Mode44 Panorama Rule UUID Lookup** utility connects securely to a Palo Alto Networks **Panorama** management server and extracts rule UUIDs by rule name.
 
-This project follows the **Mode44 Secure Automation Framework**:
-- No credentials are stored
-- Authentication prompts at runtime
-- Optional SSL verification toggle
-- XML safely parsed with `defusedxml`
-- Exports human-readable and machine-readable reports
+This tool is designed for auditors, analysts, and engineers who need to correlate security policy names with unique UUIDs across **Shared** and **Device-Group** rulebases.
+
+It is a **read-only** automation utility following the Mode44 secure-coding standard:
+- No credentials are stored.
+- SSL verification optional (for labs).
+- Safe XML parsing with `defusedxml`.
+- Rich human-readable terminal output.
+- Exportable CSV reports.
 
 ---
 
 ## ⚙️ Features
 
-- ✅ Searches **shared pre/post** and **device-group** security rulebases  
-- ✅ Reads rule names from a plain-text file (`rule_list.txt`)  
-- ✅ Prints UUIDs in a Rich-formatted table  
-- ✅ Exports full results to `rule_uuid_lookup.csv`  
-- ✅ No write operations — read-only API queries  
-- ✅ Uses strong Python security practices (SSL toggle, safe XML, runtime auth)
+| Feature | Description |
+|----------|--------------|
+| 🔐 Secure dual authentication | Supports classic **XML API keygen** (username/password) and **REST_API_TOKEN** (future SCM/11.1+). |
+| 📂 Multi-rulebase search | Scans **Shared Pre/Post** and all **Device-Group** Security rulebases. |
+| 🧾 CSV export | Writes results to `rule_uuid_lookup.csv` with columns for DG, location, rule name, and UUID. |
+| 🧱 Safe parsing | Uses `defusedxml` to eliminate XML entity exploits. |
+| 🧰 Portable | Runs on any host with Python ≥ 3.8 and `requests`, `rich`. |
 
 ---
 
-## 🧰 Requirements
+## 🧩 Requirements
 
-- Python 3.8+  
-- `requests`, `defusedxml`, `rich` (install via pip)
+Install dependencies:
 
 ```bash
 python3 -m pip install requests defusedxml rich
